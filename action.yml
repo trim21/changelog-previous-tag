@@ -8,3 +8,5 @@ inputs:
   version-spec:
     description: "'semver' or 'pep440'"
     default: 'semver'
+  token:
+    description: "github token"
