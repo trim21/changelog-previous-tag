@@ -6,7 +6,7 @@ import semver
 from github import Github
 from github import Auth
 
-version_spec = os.environ['INPUT_VERSION_SPEC']
+version_spec = os.environ['INPUT_VERSION-SPEC']
 
 if version_spec == 'pep440':
     use_pep440 = True
