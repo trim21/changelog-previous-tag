@@ -22,22 +22,29 @@ current_tag = os.environ['GITHUB_REF_NAME']
 pre: bool
 
 if use_pep440:
-    pre = bool(packaging.version.Version(current_tag).is_prerelease)
+    current_version = packaging.version.Version(current_tag)
+    pre = bool(current_version.is_prerelease)
 else:
-    pre = bool(semver.Version.parse(current_tag.removeprefix('v')).prerelease)
+    current_version = semver.Version.parse(current_tag.removeprefix('v'))
+    pre = bool(current_version.prerelease)
 
 g = Github(auth=Auth.Token(os.environ['INPUT_TOKEN']))
 
 for tag in g.get_repo(os.environ['GITHUB_REPOSITORY']).get_tags():
-    if tag.name == current_tag:
+    if use_pep440:
+        t = packaging.version.Version(tag.name)
+    else:
+        t = semver.Version.parse(tag.name.removeprefix('v'))
+
+    if t >= current_version:
         continue
 
     if not pre:
         if use_pep440:
-            if packaging.version.Version(tag.name).is_prerelease:
+            if t.is_prerelease:
                 continue
         else:
-            if semver.Version.parse(tag.name.removeprefix('v')).prerelease:
+            if t.prerelease:
                 continue
 
     print(f"previousTag={tag.name}")
