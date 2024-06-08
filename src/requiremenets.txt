@@ -1,2 +1,4 @@
 semver
 packaging
+httpx
+PyGithub
