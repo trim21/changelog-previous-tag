@@ -28,6 +28,13 @@ else:
     current_version = semver.Version.parse(current_tag.removeprefix('v'))
     pre = bool(current_version.prerelease)
 
+if pre:
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+        f.write("\npreRelease=true\n")
+
+    with open(os.environ['GITHUB_ENV'], 'a') as f:
+        f.write("\npreRelease=true\n")
+
 g = Github(auth=Auth.Token(os.environ['INPUT_TOKEN']))
 
 for tag in g.get_repo(os.environ['GITHUB_REPOSITORY']).get_tags():
