@@ -33,7 +33,6 @@ jobs:
         with:
           context: ./src/
           provenance: false
-          file: ./etc/final.dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
