@@ -44,6 +44,9 @@ for tag in g.get_repo(os.environ['GITHUB_REPOSITORY']).get_tags():
     with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
         f.write(f"\npreviousTag={tag.name}\n")
 
+    with open(os.environ['GITHUB_ENV'], 'a') as f:
+        f.write(f"\npreviousTag={tag.name}\n")
+
     sys.exit(0)
 
 sys.exit(1)
