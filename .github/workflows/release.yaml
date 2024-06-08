@@ -34,7 +34,6 @@ jobs:
       - name: Build Final Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: ./src/
           provenance: false
           push: true
           tags: ${{ steps.meta.outputs.tags }}
