@@ -40,9 +40,9 @@ for tag in g.get_repo(os.environ['GITHUB_REPOSITORY']).get_tags():
             if semver.Version.parse(tag.name).prerelease:
                 continue
 
-    print(f"fromTag={tag.name}")
+    print(f"previousTag={tag.name}")
     with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-        f.write(f"\nfromTag={tag.name}\n")
+        f.write(f"\npreviousTag={tag.name}\n")
 
     sys.exit(0)
 
