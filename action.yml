@@ -2,11 +2,11 @@
 name: 'changelog-previous-tag'
 description: 'get previous tag for changelog'
 runs:
-  using: 'docker'
-  image: 'docker://ghcr.io/trim21/changelog-previous-tag:v1'
+  using: 'node24'
+  main: 'dist/index.js'
 inputs:
   version-spec:
     description: "'semver' or 'pep440'"
     default: 'semver'
   token:
-    description: "github token"
+    description: 'github token, defaults to the built-in GITHUB_TOKEN'
