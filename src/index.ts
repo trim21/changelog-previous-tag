@@ -57,7 +57,7 @@ async function main(): Promise<void> {
   if (!usePep440) {
     currentSemver = semver.parse(currentTag.replace(/^v/, ''));
   }
- 
+
   for await (const { data: tags } of octokit.paginate.iterator(octokit.rest.repos.listTags, {
     owner,
     repo,
