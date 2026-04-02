@@ -21,6 +21,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm build
+      - run: pnpm run format
+      - run: pnpm run build
 
       - uses: autofix-ci/action@v1
