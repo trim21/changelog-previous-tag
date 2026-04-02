@@ -5,6 +5,7 @@
   "separateMinorPatch": false,
   "rangeStrategy": "pin",
   "semanticCommitType": "build",
+  "rebaseWhen": "conflicted",
   "packageRules": [
     {
       "matchManagers": ["pre-commit"],
