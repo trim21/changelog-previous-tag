@@ -9,7 +9,7 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "@actions/core": "3.0.0",
+    "@actions/core": "3.0.1",
     "@actions/github": "9.0.0",
     "@renovatebot/pep440": "4.2.2",
     "semver": "7.7.4"
