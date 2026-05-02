@@ -22530,7 +22530,7 @@ function info(message) {
   process.stdout.write(message + os4.EOL);
 }
 
-// node_modules/.pnpm/@actions+github@9.0.0/node_modules/@actions/github/lib/context.js
+// node_modules/.pnpm/@actions+github@9.1.1/node_modules/@actions/github/lib/context.js
 var import_fs2 = require("fs");
 var import_os3 = require("os");
 var Context = class {
@@ -22581,7 +22581,7 @@ var Context = class {
   }
 };
 
-// node_modules/.pnpm/@actions+github@9.0.0/node_modules/@actions/github/lib/internal/utils.js
+// node_modules/.pnpm/@actions+github@9.1.1/node_modules/@actions/github/lib/internal/utils.js
 var httpClient = __toESM(require_lib(), 1);
 var import_undici2 = __toESM(require_undici(), 1);
 var __awaiter2 = function(thisArg, _arguments, P, generator) {
@@ -22636,6 +22636,19 @@ function getProxyFetch(destinationUrl) {
 }
 function getApiBaseUrl() {
   return process.env["GITHUB_API_URL"] || "https://api.github.com";
+}
+function getUserAgentWithOrchestrationId(baseUserAgent) {
+  var _a;
+  const orchId = (_a = process.env["ACTIONS_ORCHESTRATION_ID"]) === null || _a === void 0 ? void 0 : _a.trim();
+  if (orchId) {
+    const sanitizedId = orchId.replace(/[^a-z0-9_.-]/gi, "_");
+    const tag = `actions_orchestration_id/${sanitizedId}`;
+    if (baseUserAgent === null || baseUserAgent === void 0 ? void 0 : baseUserAgent.includes(tag))
+      return baseUserAgent;
+    const ua = baseUserAgent ? `${baseUserAgent} ` : "";
+    return `${ua}${tag}`;
+  }
+  return baseUserAgent;
 }
 
 // node_modules/.pnpm/universal-user-agent@7.0.3/node_modules/universal-user-agent/index.js
@@ -26231,7 +26244,7 @@ function paginateRest(octokit) {
 }
 paginateRest.VERSION = VERSION6;
 
-// node_modules/.pnpm/@actions+github@9.0.0/node_modules/@actions/github/lib/utils.js
+// node_modules/.pnpm/@actions+github@9.1.1/node_modules/@actions/github/lib/utils.js
 var context = new Context();
 var baseUrl = getApiBaseUrl();
 var defaults = {
@@ -26248,10 +26261,14 @@ function getOctokitOptions(token, options) {
   if (auth2) {
     opts.auth = auth2;
   }
+  const userAgent2 = getUserAgentWithOrchestrationId(opts.userAgent);
+  if (userAgent2) {
+    opts.userAgent = userAgent2;
+  }
   return opts;
 }
 
-// node_modules/.pnpm/@actions+github@9.0.0/node_modules/@actions/github/lib/github.js
+// node_modules/.pnpm/@actions+github@9.1.1/node_modules/@actions/github/lib/github.js
 var context2 = new Context();
 function getOctokit(token, options, ...additionalPlugins) {
   const GitHubWithPlugins = GitHub.plugin(...additionalPlugins);
