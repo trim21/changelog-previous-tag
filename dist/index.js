@@ -959,7 +959,7 @@ var require_util = __commonJS({
     var net = require("node:net");
     var { Blob: Blob2 } = require("node:buffer");
     var nodeUtil = require("node:util");
-    var { stringify } = require("node:querystring");
+    var { stringify: stringify2 } = require("node:querystring");
     var { EventEmitter: EE } = require("node:events");
     var { InvalidArgumentError } = require_errors();
     var { headerNameLowerCasedRecord } = require_constants();
@@ -1019,7 +1019,7 @@ var require_util = __commonJS({
       if (url.includes("?") || url.includes("#")) {
         throw new Error('Query params cannot be passed when url already contains "?" or "#".');
       }
-      const stringified = stringify(queryParams);
+      const stringified = stringify2(queryParams);
       if (stringified) {
         url += "?" + stringified;
       }
@@ -15916,7 +15916,7 @@ var require_util6 = __commonJS({
         throw new Error("Invalid cookie max-age");
       }
     }
-    function stringify(cookie) {
+    function stringify2(cookie) {
       if (cookie.name.length === 0) {
         return null;
       }
@@ -15970,7 +15970,7 @@ var require_util6 = __commonJS({
       validateCookiePath,
       validateCookieValue,
       toIMFDate,
-      stringify
+      stringify: stringify2
     };
   }
 });
@@ -16120,7 +16120,7 @@ var require_cookies = __commonJS({
   "node_modules/.pnpm/undici@6.24.1/node_modules/undici/lib/web/cookies/index.js"(exports2, module2) {
     "use strict";
     var { parseSetCookie } = require_parse();
-    var { stringify } = require_util6();
+    var { stringify: stringify2 } = require_util6();
     var { webidl } = require_webidl();
     var { Headers: Headers2 } = require_headers();
     function getCookies(headers) {
@@ -16163,7 +16163,7 @@ var require_cookies = __commonJS({
       webidl.argumentLengthCheck(arguments, 2, "setCookie");
       webidl.brandCheck(headers, Headers2, { strict: false });
       cookie = webidl.converters.Cookie(cookie);
-      const str = stringify(cookie);
+      const str = stringify2(cookie);
       if (str) {
         headers.append("Set-Cookie", str);
       }
@@ -19944,11 +19944,11 @@ var require_clean = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/clean.js"(exports2, module2) {
     "use strict";
     var parse4 = require_parse2();
-    var clean = (version, options) => {
+    var clean2 = (version, options) => {
       const s = parse4(version.trim().replace(/^[=v]+/, ""), options);
       return s ? s.version : null;
     };
-    module2.exports = clean;
+    module2.exports = clean2;
   }
 });
 
@@ -19957,7 +19957,7 @@ var require_inc = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/inc.js"(exports2, module2) {
     "use strict";
     var SemVer = require_semver();
-    var inc = (version, release, options, identifier, identifierBase) => {
+    var inc2 = (version, release, options, identifier, identifierBase) => {
       if (typeof options === "string") {
         identifierBase = identifier;
         identifier = options;
@@ -19972,7 +19972,7 @@ var require_inc = __commonJS({
         return null;
       }
     };
-    module2.exports = inc;
+    module2.exports = inc2;
   }
 });
 
@@ -20025,8 +20025,8 @@ var require_major = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/major.js"(exports2, module2) {
     "use strict";
     var SemVer = require_semver();
-    var major = (a, loose) => new SemVer(a, loose).major;
-    module2.exports = major;
+    var major2 = (a, loose) => new SemVer(a, loose).major;
+    module2.exports = major2;
   }
 });
 
@@ -20035,8 +20035,8 @@ var require_minor = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/minor.js"(exports2, module2) {
     "use strict";
     var SemVer = require_semver();
-    var minor = (a, loose) => new SemVer(a, loose).minor;
-    module2.exports = minor;
+    var minor2 = (a, loose) => new SemVer(a, loose).minor;
+    module2.exports = minor2;
   }
 });
 
@@ -20045,8 +20045,8 @@ var require_patch = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/patch.js"(exports2, module2) {
     "use strict";
     var SemVer = require_semver();
-    var patch = (a, loose) => new SemVer(a, loose).patch;
-    module2.exports = patch;
+    var patch2 = (a, loose) => new SemVer(a, loose).patch;
+    module2.exports = patch2;
   }
 });
 
@@ -20068,8 +20068,8 @@ var require_compare = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/compare.js"(exports2, module2) {
     "use strict";
     var SemVer = require_semver();
-    var compare = (a, b, loose) => new SemVer(a, loose).compare(new SemVer(b, loose));
-    module2.exports = compare;
+    var compare2 = (a, b, loose) => new SemVer(a, loose).compare(new SemVer(b, loose));
+    module2.exports = compare2;
   }
 });
 
@@ -20077,9 +20077,9 @@ var require_compare = __commonJS({
 var require_rcompare = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/rcompare.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var rcompare = (a, b, loose) => compare(b, a, loose);
-    module2.exports = rcompare;
+    var compare2 = require_compare();
+    var rcompare2 = (a, b, loose) => compare2(b, a, loose);
+    module2.exports = rcompare2;
   }
 });
 
@@ -20087,8 +20087,8 @@ var require_rcompare = __commonJS({
 var require_compare_loose = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/compare-loose.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var compareLoose = (a, b) => compare(a, b, true);
+    var compare2 = require_compare();
+    var compareLoose = (a, b) => compare2(a, b, true);
     module2.exports = compareLoose;
   }
 });
@@ -20131,9 +20131,9 @@ var require_rsort = __commonJS({
 var require_gt = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/gt.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var gt = (a, b, loose) => compare(a, b, loose) > 0;
-    module2.exports = gt;
+    var compare2 = require_compare();
+    var gt2 = (a, b, loose) => compare2(a, b, loose) > 0;
+    module2.exports = gt2;
   }
 });
 
@@ -20141,9 +20141,9 @@ var require_gt = __commonJS({
 var require_lt = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/lt.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var lt = (a, b, loose) => compare(a, b, loose) < 0;
-    module2.exports = lt;
+    var compare2 = require_compare();
+    var lt2 = (a, b, loose) => compare2(a, b, loose) < 0;
+    module2.exports = lt2;
   }
 });
 
@@ -20151,9 +20151,9 @@ var require_lt = __commonJS({
 var require_eq = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/eq.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var eq = (a, b, loose) => compare(a, b, loose) === 0;
-    module2.exports = eq;
+    var compare2 = require_compare();
+    var eq2 = (a, b, loose) => compare2(a, b, loose) === 0;
+    module2.exports = eq2;
   }
 });
 
@@ -20161,8 +20161,8 @@ var require_eq = __commonJS({
 var require_neq = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/neq.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var neq = (a, b, loose) => compare(a, b, loose) !== 0;
+    var compare2 = require_compare();
+    var neq = (a, b, loose) => compare2(a, b, loose) !== 0;
     module2.exports = neq;
   }
 });
@@ -20171,9 +20171,9 @@ var require_neq = __commonJS({
 var require_gte = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/gte.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var gte3 = (a, b, loose) => compare(a, b, loose) >= 0;
-    module2.exports = gte3;
+    var compare2 = require_compare();
+    var gte2 = (a, b, loose) => compare2(a, b, loose) >= 0;
+    module2.exports = gte2;
   }
 });
 
@@ -20181,8 +20181,8 @@ var require_gte = __commonJS({
 var require_lte = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/lte.js"(exports2, module2) {
     "use strict";
-    var compare = require_compare();
-    var lte = (a, b, loose) => compare(a, b, loose) <= 0;
+    var compare2 = require_compare();
+    var lte = (a, b, loose) => compare2(a, b, loose) <= 0;
     module2.exports = lte;
   }
 });
@@ -20191,11 +20191,11 @@ var require_lte = __commonJS({
 var require_cmp = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/cmp.js"(exports2, module2) {
     "use strict";
-    var eq = require_eq();
+    var eq2 = require_eq();
     var neq = require_neq();
-    var gt = require_gt();
-    var gte3 = require_gte();
-    var lt = require_lt();
+    var gt2 = require_gt();
+    var gte2 = require_gte();
+    var lt2 = require_lt();
     var lte = require_lte();
     var cmp = (a, op, b, loose) => {
       switch (op) {
@@ -20218,15 +20218,15 @@ var require_cmp = __commonJS({
         case "":
         case "=":
         case "==":
-          return eq(a, b, loose);
+          return eq2(a, b, loose);
         case "!=":
           return neq(a, b, loose);
         case ">":
-          return gt(a, b, loose);
+          return gt2(a, b, loose);
         case ">=":
-          return gte3(a, b, loose);
+          return gte2(a, b, loose);
         case "<":
-          return lt(a, b, loose);
+          return lt2(a, b, loose);
         case "<=":
           return lte(a, b, loose);
         default:
@@ -20272,12 +20272,12 @@ var require_coerce = __commonJS({
       if (match === null) {
         return null;
       }
-      const major = match[2];
-      const minor = match[3] || "0";
-      const patch = match[4] || "0";
+      const major2 = match[2];
+      const minor2 = match[3] || "0";
+      const patch2 = match[4] || "0";
       const prerelease = options.includePrerelease && match[5] ? `-${match[5]}` : "";
       const build = options.includePrerelease && match[6] ? `+${match[6]}` : "";
-      return parse4(`${major}.${minor}.${patch}${prerelease}${build}`, options);
+      return parse4(`${major2}.${minor2}.${patch2}${prerelease}${build}`, options);
     };
     module2.exports = coerce;
   }
@@ -20816,7 +20816,7 @@ var require_satisfies = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/functions/satisfies.js"(exports2, module2) {
     "use strict";
     var Range = require_range();
-    var satisfies = (version, range, options) => {
+    var satisfies2 = (version, range, options) => {
       try {
         range = new Range(range, options);
       } catch (er) {
@@ -20824,7 +20824,7 @@ var require_satisfies = __commonJS({
       }
       return range.test(version);
     };
-    module2.exports = satisfies;
+    module2.exports = satisfies2;
   }
 });
 
@@ -20844,7 +20844,7 @@ var require_max_satisfying = __commonJS({
     "use strict";
     var SemVer = require_semver();
     var Range = require_range();
-    var maxSatisfying = (versions, range, options) => {
+    var maxSatisfying2 = (versions, range, options) => {
       let max = null;
       let maxSV = null;
       let rangeObj = null;
@@ -20863,7 +20863,7 @@ var require_max_satisfying = __commonJS({
       });
       return max;
     };
-    module2.exports = maxSatisfying;
+    module2.exports = maxSatisfying2;
   }
 });
 
@@ -20873,7 +20873,7 @@ var require_min_satisfying = __commonJS({
     "use strict";
     var SemVer = require_semver();
     var Range = require_range();
-    var minSatisfying = (versions, range, options) => {
+    var minSatisfying2 = (versions, range, options) => {
       let min = null;
       let minSV = null;
       let rangeObj = null;
@@ -20892,7 +20892,7 @@ var require_min_satisfying = __commonJS({
       });
       return min;
     };
-    module2.exports = minSatisfying;
+    module2.exports = minSatisfying2;
   }
 });
 
@@ -20902,7 +20902,7 @@ var require_min_version = __commonJS({
     "use strict";
     var SemVer = require_semver();
     var Range = require_range();
-    var gt = require_gt();
+    var gt2 = require_gt();
     var minVersion = (range, loose) => {
       range = new Range(range, loose);
       let minver = new SemVer("0.0.0");
@@ -20930,7 +20930,7 @@ var require_min_version = __commonJS({
             /* fallthrough */
             case "":
             case ">=":
-              if (!setMin || gt(compver, setMin)) {
+              if (!setMin || gt2(compver, setMin)) {
                 setMin = compver;
               }
               break;
@@ -20942,7 +20942,7 @@ var require_min_version = __commonJS({
               throw new Error(`Unexpected operation: ${comparator.operator}`);
           }
         });
-        if (setMin && (!minver || gt(minver, setMin))) {
+        if (setMin && (!minver || gt2(minver, setMin))) {
           minver = setMin;
         }
       }
@@ -20960,14 +20960,14 @@ var require_valid2 = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/ranges/valid.js"(exports2, module2) {
     "use strict";
     var Range = require_range();
-    var validRange = (range, options) => {
+    var validRange2 = (range, options) => {
       try {
         return new Range(range, options).range || "*";
       } catch (er) {
         return null;
       }
     };
-    module2.exports = validRange;
+    module2.exports = validRange2;
   }
 });
 
@@ -20979,34 +20979,34 @@ var require_outside = __commonJS({
     var Comparator = require_comparator();
     var { ANY } = Comparator;
     var Range = require_range();
-    var satisfies = require_satisfies();
-    var gt = require_gt();
-    var lt = require_lt();
+    var satisfies2 = require_satisfies();
+    var gt2 = require_gt();
+    var lt2 = require_lt();
     var lte = require_lte();
-    var gte3 = require_gte();
+    var gte2 = require_gte();
     var outside = (version, range, hilo, options) => {
       version = new SemVer(version, options);
       range = new Range(range, options);
       let gtfn, ltefn, ltfn, comp, ecomp;
       switch (hilo) {
         case ">":
-          gtfn = gt;
+          gtfn = gt2;
           ltefn = lte;
-          ltfn = lt;
+          ltfn = lt2;
           comp = ">";
           ecomp = ">=";
           break;
         case "<":
-          gtfn = lt;
-          ltefn = gte3;
-          ltfn = gt;
+          gtfn = lt2;
+          ltefn = gte2;
+          ltfn = gt2;
           comp = "<";
           ecomp = "<=";
           break;
         default:
           throw new TypeError('Must provide a hilo val of "<" or ">"');
       }
-      if (satisfies(version, range, options)) {
+      if (satisfies2(version, range, options)) {
         return false;
       }
       for (let i = 0; i < range.set.length; ++i) {
@@ -21078,15 +21078,15 @@ var require_intersects = __commonJS({
 var require_simplify = __commonJS({
   "node_modules/.pnpm/semver@7.7.4/node_modules/semver/ranges/simplify.js"(exports2, module2) {
     "use strict";
-    var satisfies = require_satisfies();
-    var compare = require_compare();
+    var satisfies2 = require_satisfies();
+    var compare2 = require_compare();
     module2.exports = (versions, range, options) => {
       const set = [];
       let first = null;
       let prev = null;
-      const v = versions.sort((a, b) => compare(a, b, options));
+      const v = versions.sort((a, b) => compare2(a, b, options));
       for (const version of v) {
-        const included = satisfies(version, range, options);
+        const included = satisfies2(version, range, options);
         if (included) {
           prev = version;
           if (!first) {
@@ -21131,8 +21131,8 @@ var require_subset = __commonJS({
     var Range = require_range();
     var Comparator = require_comparator();
     var { ANY } = Comparator;
-    var satisfies = require_satisfies();
-    var compare = require_compare();
+    var satisfies2 = require_satisfies();
+    var compare2 = require_compare();
     var subset = (sub, dom, options = {}) => {
       if (sub === dom) {
         return true;
@@ -21177,12 +21177,12 @@ var require_subset = __commonJS({
         }
       }
       const eqSet = /* @__PURE__ */ new Set();
-      let gt, lt;
+      let gt2, lt2;
       for (const c of sub) {
         if (c.operator === ">" || c.operator === ">=") {
-          gt = higherGT(gt, c, options);
+          gt2 = higherGT(gt2, c, options);
         } else if (c.operator === "<" || c.operator === "<=") {
-          lt = lowerLT(lt, c, options);
+          lt2 = lowerLT(lt2, c, options);
         } else {
           eqSet.add(c.semver);
         }
@@ -21191,23 +21191,23 @@ var require_subset = __commonJS({
         return null;
       }
       let gtltComp;
-      if (gt && lt) {
-        gtltComp = compare(gt.semver, lt.semver, options);
+      if (gt2 && lt2) {
+        gtltComp = compare2(gt2.semver, lt2.semver, options);
         if (gtltComp > 0) {
           return null;
-        } else if (gtltComp === 0 && (gt.operator !== ">=" || lt.operator !== "<=")) {
+        } else if (gtltComp === 0 && (gt2.operator !== ">=" || lt2.operator !== "<=")) {
           return null;
         }
       }
-      for (const eq of eqSet) {
-        if (gt && !satisfies(eq, String(gt), options)) {
+      for (const eq2 of eqSet) {
+        if (gt2 && !satisfies2(eq2, String(gt2), options)) {
           return null;
         }
-        if (lt && !satisfies(eq, String(lt), options)) {
+        if (lt2 && !satisfies2(eq2, String(lt2), options)) {
           return null;
         }
         for (const c of dom) {
-          if (!satisfies(eq, String(c), options)) {
+          if (!satisfies2(eq2, String(c), options)) {
             return false;
           }
         }
@@ -21215,52 +21215,52 @@ var require_subset = __commonJS({
       }
       let higher, lower;
       let hasDomLT, hasDomGT;
-      let needDomLTPre = lt && !options.includePrerelease && lt.semver.prerelease.length ? lt.semver : false;
-      let needDomGTPre = gt && !options.includePrerelease && gt.semver.prerelease.length ? gt.semver : false;
-      if (needDomLTPre && needDomLTPre.prerelease.length === 1 && lt.operator === "<" && needDomLTPre.prerelease[0] === 0) {
+      let needDomLTPre = lt2 && !options.includePrerelease && lt2.semver.prerelease.length ? lt2.semver : false;
+      let needDomGTPre = gt2 && !options.includePrerelease && gt2.semver.prerelease.length ? gt2.semver : false;
+      if (needDomLTPre && needDomLTPre.prerelease.length === 1 && lt2.operator === "<" && needDomLTPre.prerelease[0] === 0) {
         needDomLTPre = false;
       }
       for (const c of dom) {
         hasDomGT = hasDomGT || c.operator === ">" || c.operator === ">=";
         hasDomLT = hasDomLT || c.operator === "<" || c.operator === "<=";
-        if (gt) {
+        if (gt2) {
           if (needDomGTPre) {
             if (c.semver.prerelease && c.semver.prerelease.length && c.semver.major === needDomGTPre.major && c.semver.minor === needDomGTPre.minor && c.semver.patch === needDomGTPre.patch) {
               needDomGTPre = false;
             }
           }
           if (c.operator === ">" || c.operator === ">=") {
-            higher = higherGT(gt, c, options);
-            if (higher === c && higher !== gt) {
+            higher = higherGT(gt2, c, options);
+            if (higher === c && higher !== gt2) {
               return false;
             }
-          } else if (gt.operator === ">=" && !satisfies(gt.semver, String(c), options)) {
+          } else if (gt2.operator === ">=" && !satisfies2(gt2.semver, String(c), options)) {
             return false;
           }
         }
-        if (lt) {
+        if (lt2) {
           if (needDomLTPre) {
             if (c.semver.prerelease && c.semver.prerelease.length && c.semver.major === needDomLTPre.major && c.semver.minor === needDomLTPre.minor && c.semver.patch === needDomLTPre.patch) {
               needDomLTPre = false;
             }
           }
           if (c.operator === "<" || c.operator === "<=") {
-            lower = lowerLT(lt, c, options);
-            if (lower === c && lower !== lt) {
+            lower = lowerLT(lt2, c, options);
+            if (lower === c && lower !== lt2) {
               return false;
             }
-          } else if (lt.operator === "<=" && !satisfies(lt.semver, String(c), options)) {
+          } else if (lt2.operator === "<=" && !satisfies2(lt2.semver, String(c), options)) {
             return false;
           }
         }
-        if (!c.operator && (lt || gt) && gtltComp !== 0) {
+        if (!c.operator && (lt2 || gt2) && gtltComp !== 0) {
           return false;
         }
       }
-      if (gt && hasDomLT && !lt && gtltComp !== 0) {
+      if (gt2 && hasDomLT && !lt2 && gtltComp !== 0) {
         return false;
       }
-      if (lt && hasDomGT && !gt && gtltComp !== 0) {
+      if (lt2 && hasDomGT && !gt2 && gtltComp !== 0) {
         return false;
       }
       if (needDomGTPre || needDomLTPre) {
@@ -21272,14 +21272,14 @@ var require_subset = __commonJS({
       if (!a) {
         return b;
       }
-      const comp = compare(a.semver, b.semver, options);
+      const comp = compare2(a.semver, b.semver, options);
       return comp > 0 ? a : comp < 0 ? b : b.operator === ">" && a.operator === ">=" ? b : a;
     };
     var lowerLT = (a, b, options) => {
       if (!a) {
         return b;
       }
-      const comp = compare(a.semver, b.semver, options);
+      const comp = compare2(a.semver, b.semver, options);
       return comp < 0 ? a : comp > 0 ? b : b.operator === "<" && a.operator === "<=" ? b : a;
     };
     module2.exports = subset;
@@ -21296,35 +21296,35 @@ var require_semver2 = __commonJS({
     var identifiers = require_identifiers();
     var parse4 = require_parse2();
     var valid2 = require_valid();
-    var clean = require_clean();
-    var inc = require_inc();
+    var clean2 = require_clean();
+    var inc2 = require_inc();
     var diff = require_diff();
-    var major = require_major();
-    var minor = require_minor();
-    var patch = require_patch();
+    var major2 = require_major();
+    var minor2 = require_minor();
+    var patch2 = require_patch();
     var prerelease = require_prerelease();
-    var compare = require_compare();
-    var rcompare = require_rcompare();
+    var compare2 = require_compare();
+    var rcompare2 = require_rcompare();
     var compareLoose = require_compare_loose();
     var compareBuild = require_compare_build();
     var sort = require_sort();
     var rsort = require_rsort();
-    var gt = require_gt();
-    var lt = require_lt();
-    var eq = require_eq();
+    var gt2 = require_gt();
+    var lt2 = require_lt();
+    var eq2 = require_eq();
     var neq = require_neq();
-    var gte3 = require_gte();
+    var gte2 = require_gte();
     var lte = require_lte();
     var cmp = require_cmp();
     var coerce = require_coerce();
     var Comparator = require_comparator();
     var Range = require_range();
-    var satisfies = require_satisfies();
+    var satisfies2 = require_satisfies();
     var toComparators = require_to_comparators();
-    var maxSatisfying = require_max_satisfying();
-    var minSatisfying = require_min_satisfying();
+    var maxSatisfying2 = require_max_satisfying();
+    var minSatisfying2 = require_min_satisfying();
     var minVersion = require_min_version();
-    var validRange = require_valid2();
+    var validRange2 = require_valid2();
     var outside = require_outside();
     var gtr = require_gtr();
     var ltr = require_ltr();
@@ -21334,35 +21334,35 @@ var require_semver2 = __commonJS({
     module2.exports = {
       parse: parse4,
       valid: valid2,
-      clean,
-      inc,
+      clean: clean2,
+      inc: inc2,
       diff,
-      major,
-      minor,
-      patch,
+      major: major2,
+      minor: minor2,
+      patch: patch2,
       prerelease,
-      compare,
-      rcompare,
+      compare: compare2,
+      rcompare: rcompare2,
       compareLoose,
       compareBuild,
       sort,
       rsort,
-      gt,
-      lt,
-      eq,
+      gt: gt2,
+      lt: lt2,
+      eq: eq2,
       neq,
-      gte: gte3,
+      gte: gte2,
       lte,
       cmp,
       coerce,
       Comparator,
       Range,
-      satisfies,
+      satisfies: satisfies2,
       toComparators,
-      maxSatisfying,
-      minSatisfying,
+      maxSatisfying: maxSatisfying2,
+      minSatisfying: minSatisfying2,
       minVersion,
-      validRange,
+      validRange: validRange2,
       outside,
       gtr,
       ltr,
@@ -21377,654 +21377,6 @@ var require_semver2 = __commonJS({
       RELEASE_TYPES: constants3.RELEASE_TYPES,
       compareIdentifiers: identifiers.compareIdentifiers,
       rcompareIdentifiers: identifiers.rcompareIdentifiers
-    };
-  }
-});
-
-// node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/version.js
-var require_version = __commonJS({
-  "node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/version.js"(exports2, module2) {
-    var VERSION_PATTERN = [
-      "v?",
-      "(?:",
-      /* */
-      "(?:(?<epoch>[0-9]+)!)?",
-      // epoch
-      /* */
-      "(?<release>[0-9]+(?:\\.[0-9]+)*)",
-      // release segment
-      /* */
-      "(?<pre>",
-      // pre-release
-      /*    */
-      "[-_\\.]?",
-      /*    */
-      "(?<pre_l>(a|b|c|rc|alpha|beta|pre|preview))",
-      /*    */
-      "[-_\\.]?",
-      /*    */
-      "(?<pre_n>[0-9]+)?",
-      /* */
-      ")?",
-      /* */
-      "(?<post>",
-      // post release
-      /*    */
-      "(?:-(?<post_n1>[0-9]+))",
-      /*    */
-      "|",
-      /*    */
-      "(?:",
-      /*        */
-      "[-_\\.]?",
-      /*        */
-      "(?<post_l>post|rev|r)",
-      /*        */
-      "[-_\\.]?",
-      /*        */
-      "(?<post_n2>[0-9]+)?",
-      /*    */
-      ")",
-      /* */
-      ")?",
-      /* */
-      "(?<dev>",
-      // dev release
-      /*    */
-      "[-_\\.]?",
-      /*    */
-      "(?<dev_l>dev)",
-      /*    */
-      "[-_\\.]?",
-      /*    */
-      "(?<dev_n>[0-9]+)?",
-      /* */
-      ")?",
-      ")",
-      "(?:\\+(?<local>[a-z0-9]+(?:[-_\\.][a-z0-9]+)*))?"
-      // local version
-    ].join("");
-    module2.exports = {
-      VERSION_PATTERN,
-      valid: valid2,
-      clean,
-      explain,
-      parse: parse4,
-      stringify
-    };
-    var validRegex = new RegExp("^" + VERSION_PATTERN + "$", "i");
-    function valid2(version) {
-      return validRegex.test(version) ? version : null;
-    }
-    var cleanRegex = new RegExp("^\\s*" + VERSION_PATTERN + "\\s*$", "i");
-    function clean(version) {
-      return stringify(parse4(version, cleanRegex));
-    }
-    function parse4(version, regex) {
-      const { groups } = (regex || validRegex).exec(version) || {};
-      if (!groups) {
-        return null;
-      }
-      const parsed = {
-        epoch: Number(groups.epoch ? groups.epoch : 0),
-        release: groups.release.split(".").map(Number),
-        pre: normalize_letter_version(groups.pre_l, groups.pre_n),
-        post: normalize_letter_version(
-          groups.post_l,
-          groups.post_n1 || groups.post_n2
-        ),
-        dev: normalize_letter_version(groups.dev_l, groups.dev_n),
-        local: parse_local_version(groups.local)
-      };
-      return parsed;
-    }
-    function stringify(parsed) {
-      if (!parsed) {
-        return null;
-      }
-      const { epoch, release, pre, post, dev, local } = parsed;
-      const parts = [];
-      if (epoch !== 0) {
-        parts.push(`${epoch}!`);
-      }
-      parts.push(release.join("."));
-      if (pre) {
-        parts.push(pre.join(""));
-      }
-      if (post) {
-        parts.push("." + post.join(""));
-      }
-      if (dev) {
-        parts.push("." + dev.join(""));
-      }
-      if (local) {
-        parts.push(`+${local}`);
-      }
-      return parts.join("");
-    }
-    function normalize_letter_version(letterIn, numberIn) {
-      let letter = letterIn;
-      let number = numberIn;
-      if (letter) {
-        if (!number) {
-          number = 0;
-        }
-        letter = letter.toLowerCase();
-        if (letter === "alpha") {
-          letter = "a";
-        } else if (letter === "beta") {
-          letter = "b";
-        } else if (["c", "pre", "preview"].includes(letter)) {
-          letter = "rc";
-        } else if (["rev", "r"].includes(letter)) {
-          letter = "post";
-        }
-        return [letter, Number(number)];
-      }
-      if (!letter && number) {
-        letter = "post";
-        return [letter, Number(number)];
-      }
-      return null;
-    }
-    function parse_local_version(local) {
-      if (local) {
-        return local.split(/[._-]/).map(
-          (part) => Number.isNaN(Number(part)) ? part.toLowerCase() : Number(part)
-        );
-      }
-      return null;
-    }
-    function explain(version) {
-      const parsed = parse4(version);
-      if (!parsed) {
-        return parsed;
-      }
-      const { epoch, release, pre, post, dev, local } = parsed;
-      let base_version = "";
-      if (epoch !== 0) {
-        base_version += epoch + "!";
-      }
-      base_version += release.join(".");
-      const is_prerelease = Boolean(dev || pre);
-      const is_devrelease = Boolean(dev);
-      const is_postrelease = Boolean(post);
-      return {
-        epoch,
-        release,
-        pre,
-        post: post ? post[1] : post,
-        dev: dev ? dev[1] : dev,
-        local: local ? local.join(".") : local,
-        public: stringify(parsed).split("+", 1)[0],
-        base_version,
-        is_prerelease,
-        is_devrelease,
-        is_postrelease
-      };
-    }
-  }
-});
-
-// node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/operator.js
-var require_operator = __commonJS({
-  "node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/operator.js"(exports2, module2) {
-    var { parse: parse4 } = require_version();
-    module2.exports = {
-      compare,
-      rcompare,
-      lt,
-      le,
-      eq,
-      ne,
-      ge,
-      gt,
-      "<": lt,
-      "<=": le,
-      "==": eq,
-      "!=": ne,
-      ">=": ge,
-      ">": gt,
-      "===": arbitrary
-    };
-    function lt(version, other) {
-      return compare(version, other) < 0;
-    }
-    function le(version, other) {
-      return compare(version, other) <= 0;
-    }
-    function eq(version, other) {
-      return compare(version, other) === 0;
-    }
-    function ne(version, other) {
-      return compare(version, other) !== 0;
-    }
-    function ge(version, other) {
-      return compare(version, other) >= 0;
-    }
-    function gt(version, other) {
-      return compare(version, other) > 0;
-    }
-    function arbitrary(version, other) {
-      return version.toLowerCase() === other.toLowerCase();
-    }
-    function compare(version, other) {
-      const parsedVersion = parse4(version);
-      const parsedOther = parse4(other);
-      const keyVersion = calculateKey(parsedVersion);
-      const keyOther = calculateKey(parsedOther);
-      return pyCompare(keyVersion, keyOther);
-    }
-    function rcompare(version, other) {
-      return -compare(version, other);
-    }
-    function pyCompare(elemIn, otherIn) {
-      let elem = elemIn;
-      let other = otherIn;
-      if (elem === other) {
-        return 0;
-      }
-      if (Array.isArray(elem) !== Array.isArray(other)) {
-        elem = Array.isArray(elem) ? elem : [elem];
-        other = Array.isArray(other) ? other : [other];
-      }
-      if (Array.isArray(elem)) {
-        const len = Math.min(elem.length, other.length);
-        for (let i = 0; i < len; i += 1) {
-          const res = pyCompare(elem[i], other[i]);
-          if (res !== 0) {
-            return res;
-          }
-        }
-        return elem.length - other.length;
-      }
-      if (elem === -Infinity || other === Infinity) {
-        return -1;
-      }
-      if (elem === Infinity || other === -Infinity) {
-        return 1;
-      }
-      return elem < other ? -1 : 1;
-    }
-    function calculateKey(input) {
-      const { epoch } = input;
-      let { release, pre, post, local, dev } = input;
-      release = release.concat();
-      release.reverse();
-      while (release.length && release[0] === 0) {
-        release.shift();
-      }
-      release.reverse();
-      if (!pre && !post && dev) pre = -Infinity;
-      else if (!pre) pre = Infinity;
-      if (!post) post = -Infinity;
-      if (!dev) dev = Infinity;
-      if (!local) {
-        local = -Infinity;
-      } else {
-        local = local.map(
-          (i) => Number.isNaN(Number(i)) ? [-Infinity, i] : [Number(i), ""]
-        );
-      }
-      return [epoch, release, pre, post, dev, local];
-    }
-  }
-});
-
-// node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/specifier.js
-var require_specifier = __commonJS({
-  "node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/specifier.js"(exports2, module2) {
-    var { VERSION_PATTERN, explain: explainVersion } = require_version();
-    var Operator = require_operator();
-    var RANGE_PATTERN = [
-      "(?<operator>(===|~=|==|!=|<=|>=|<|>))",
-      "\\s*",
-      "(",
-      /*  */
-      "(?<version>(?:" + VERSION_PATTERN.replace(/\?<\w+>/g, "?:") + "))",
-      /*  */
-      "(?<prefix>\\.\\*)?",
-      /*  */
-      "|",
-      /*  */
-      "(?<legacy>[^,;\\s)]+)",
-      ")"
-    ].join("");
-    module2.exports = {
-      RANGE_PATTERN,
-      parse: parse4,
-      satisfies,
-      filter,
-      validRange,
-      maxSatisfying,
-      minSatisfying
-    };
-    var isEqualityOperator = (op) => ["==", "!=", "==="].includes(op);
-    var rangeRegex = new RegExp("^" + RANGE_PATTERN + "$", "i");
-    function parse4(ranges) {
-      if (!ranges.trim()) {
-        return [];
-      }
-      const specifiers = ranges.split(",").map((range) => rangeRegex.exec(range.trim()) || {}).map(({ groups }) => {
-        if (!groups) {
-          return null;
-        }
-        let { ...spec } = groups;
-        const { operator, version, prefix, legacy } = groups;
-        if (version) {
-          spec = { ...spec, ...explainVersion(version) };
-          if (operator === "~=") {
-            if (spec.release.length < 2) {
-              return null;
-            }
-          }
-          if (!isEqualityOperator(operator) && spec.local) {
-            return null;
-          }
-          if (prefix) {
-            if (!isEqualityOperator(operator) || spec.dev || spec.local) {
-              return null;
-            }
-          }
-        }
-        if (legacy && operator !== "===") {
-          return null;
-        }
-        return spec;
-      });
-      if (specifiers.filter(Boolean).length !== specifiers.length) {
-        return null;
-      }
-      return specifiers;
-    }
-    function filter(versions, specifier, options = {}) {
-      const filtered = pick(versions, specifier, options);
-      if (filtered.length === 0 && options.prereleases === void 0) {
-        return pick(versions, specifier, { prereleases: true });
-      }
-      return filtered;
-    }
-    function maxSatisfying(versions, range, options) {
-      const found = filter(versions, range, options).sort(Operator.compare);
-      return found.length === 0 ? null : found[found.length - 1];
-    }
-    function minSatisfying(versions, range, options) {
-      const found = filter(versions, range, options).sort(Operator.compare);
-      return found.length === 0 ? null : found[0];
-    }
-    function pick(versions, specifier, options) {
-      const parsed = parse4(specifier);
-      if (!parsed) {
-        return [];
-      }
-      return versions.filter((version) => {
-        const explained = explainVersion(version);
-        if (!parsed.length) {
-          return explained && !(explained.is_prerelease && !options.prereleases);
-        }
-        return parsed.reduce((pass, spec) => {
-          if (!pass) {
-            return false;
-          }
-          return contains({ ...spec, ...options }, { version, explained });
-        }, true);
-      });
-    }
-    function satisfies(version, specifier, options = {}) {
-      const filtered = pick([version], specifier, options);
-      return filtered.length === 1;
-    }
-    function arrayStartsWith(array, prefix) {
-      if (prefix.length > array.length) {
-        return false;
-      }
-      for (let i = 0; i < prefix.length; i += 1) {
-        if (prefix[i] !== array[i]) {
-          return false;
-        }
-      }
-      return true;
-    }
-    function contains(specifier, input) {
-      const { explained } = input;
-      let { version } = input;
-      const { ...spec } = specifier;
-      if (spec.prereleases === void 0) {
-        spec.prereleases = spec.is_prerelease;
-      }
-      if (explained && explained.is_prerelease && !spec.prereleases) {
-        return false;
-      }
-      if (spec.operator === "~=") {
-        let compatiblePrefix = spec.release.slice(0, -1).concat("*").join(".");
-        if (spec.epoch) {
-          compatiblePrefix = spec.epoch + "!" + compatiblePrefix;
-        }
-        return satisfies(version, `>=${spec.version}, ==${compatiblePrefix}`, {
-          prereleases: spec.prereleases
-        });
-      }
-      if (spec.prefix) {
-        const isMatching = explained.epoch === spec.epoch && arrayStartsWith(explained.release, spec.release);
-        const isEquality = spec.operator !== "!=";
-        return isEquality ? isMatching : !isMatching;
-      }
-      if (explained) {
-        if (explained.local && spec.version) {
-          version = explained.public;
-          spec.version = explainVersion(spec.version).public;
-        }
-      }
-      if (spec.operator === "<" || spec.operator === ">") {
-        if (Operator.eq(spec.release.join("."), explained.release.join("."))) {
-          return false;
-        }
-      }
-      const op = Operator[spec.operator];
-      return op(version, spec.version || spec.legacy);
-    }
-    function validRange(specifier) {
-      return Boolean(parse4(specifier));
-    }
-  }
-});
-
-// node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/semantic.js
-var require_semantic = __commonJS({
-  "node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/lib/semantic.js"(exports2, module2) {
-    var { explain, parse: parse4, stringify } = require_version();
-    module2.exports = {
-      major,
-      minor,
-      patch,
-      inc
-    };
-    function major(input) {
-      const version = explain(input);
-      if (!version) {
-        throw new TypeError("Invalid Version: " + input);
-      }
-      return version.release[0];
-    }
-    function minor(input) {
-      const version = explain(input);
-      if (!version) {
-        throw new TypeError("Invalid Version: " + input);
-      }
-      if (version.release.length < 2) {
-        return 0;
-      }
-      return version.release[1];
-    }
-    function patch(input) {
-      const version = explain(input);
-      if (!version) {
-        throw new TypeError("Invalid Version: " + input);
-      }
-      if (version.release.length < 3) {
-        return 0;
-      }
-      return version.release[2];
-    }
-    function inc(input, release, preReleaseIdentifier) {
-      let identifier = preReleaseIdentifier || `a`;
-      const version = parse4(input);
-      if (!version) {
-        return null;
-      }
-      if (!["a", "b", "c", "rc", "alpha", "beta", "pre", "preview"].includes(
-        identifier
-      )) {
-        return null;
-      }
-      switch (release) {
-        case "premajor":
-          {
-            const [majorVersion] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion + 1;
-          }
-          version.pre = [identifier, 0];
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        case "preminor":
-          {
-            const [majorVersion, minorVersion = 0] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion;
-            version.release[1] = minorVersion + 1;
-          }
-          version.pre = [identifier, 0];
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        case "prepatch":
-          {
-            const [majorVersion, minorVersion = 0, patchVersion = 0] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion;
-            version.release[1] = minorVersion;
-            version.release[2] = patchVersion + 1;
-          }
-          version.pre = [identifier, 0];
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        case "prerelease":
-          if (version.pre === null) {
-            const [majorVersion, minorVersion = 0, patchVersion = 0] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion;
-            version.release[1] = minorVersion;
-            version.release[2] = patchVersion + 1;
-            version.pre = [identifier, 0];
-          } else {
-            if (preReleaseIdentifier === void 0 && version.pre !== null) {
-              [identifier] = version.pre;
-            }
-            const [letter, number] = version.pre;
-            if (letter === identifier) {
-              version.pre = [letter, number + 1];
-            } else {
-              version.pre = [identifier, 0];
-            }
-          }
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        case "major":
-          if (version.release.slice(1).some((value) => value !== 0) || version.pre === null) {
-            const [majorVersion] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion + 1;
-          }
-          delete version.pre;
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        case "minor":
-          if (version.release.slice(2).some((value) => value !== 0) || version.pre === null) {
-            const [majorVersion, minorVersion = 0] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion;
-            version.release[1] = minorVersion + 1;
-          }
-          delete version.pre;
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        case "patch":
-          if (version.release.slice(3).some((value) => value !== 0) || version.pre === null) {
-            const [majorVersion, minorVersion = 0, patchVersion = 0] = version.release;
-            version.release.fill(0);
-            version.release[0] = majorVersion;
-            version.release[1] = minorVersion;
-            version.release[2] = patchVersion + 1;
-          }
-          delete version.pre;
-          delete version.post;
-          delete version.dev;
-          delete version.local;
-          break;
-        default:
-          return null;
-      }
-      return stringify(version);
-    }
-  }
-});
-
-// node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/index.js
-var require_pep440 = __commonJS({
-  "node_modules/.pnpm/@renovatebot+pep440@4.2.2/node_modules/@renovatebot/pep440/index.js"(exports2, module2) {
-    var { valid: valid2, clean, explain, parse: parse4 } = require_version();
-    var { lt, le, eq, ne, ge, gt, compare, rcompare } = require_operator();
-    var {
-      filter,
-      maxSatisfying,
-      minSatisfying,
-      RANGE_PATTERN,
-      satisfies,
-      validRange
-    } = require_specifier();
-    var { major, minor, patch, inc } = require_semantic();
-    module2.exports = {
-      // version
-      valid: valid2,
-      clean,
-      explain,
-      parse: parse4,
-      // operator
-      lt,
-      le,
-      lte: le,
-      eq,
-      ne,
-      neq: ne,
-      ge,
-      gte: ge,
-      gt,
-      compare,
-      rcompare,
-      // range
-      filter,
-      maxSatisfying,
-      minSatisfying,
-      RANGE_PATTERN,
-      satisfies,
-      validRange,
-      // semantic
-      major,
-      minor,
-      patch,
-      inc
     };
   }
 });
@@ -26277,7 +25629,205 @@ function getOctokit(token, options, ...additionalPlugins) {
 
 // src/index.ts
 var semver = __toESM(require_semver2());
-var pep440 = __toESM(require_pep440());
+
+// node_modules/.pnpm/@renovatebot+pep440@5.0.0/node_modules/@renovatebot/pep440/lib/version.js
+var VERSION_PATTERN = [
+  "v?",
+  "(?:",
+  /* */
+  "(?:(?<epoch>[0-9]+)!)?",
+  // epoch
+  /* */
+  "(?<release>[0-9]+(?:\\.[0-9]+)*)",
+  // release segment
+  /* */
+  "(?<pre>",
+  // pre-release
+  /*    */
+  "[-_\\.]?",
+  /*    */
+  "(?<pre_l>(a|b|c|rc|alpha|beta|pre|preview))",
+  /*    */
+  "[-_\\.]?",
+  /*    */
+  "(?<pre_n>[0-9]+)?",
+  /* */
+  ")?",
+  /* */
+  "(?<post>",
+  // post release
+  /*    */
+  "(?:-(?<post_n1>[0-9]+))",
+  /*    */
+  "|",
+  /*    */
+  "(?:",
+  /*        */
+  "[-_\\.]?",
+  /*        */
+  "(?<post_l>post|rev|r)",
+  /*        */
+  "[-_\\.]?",
+  /*        */
+  "(?<post_n2>[0-9]+)?",
+  /*    */
+  ")",
+  /* */
+  ")?",
+  /* */
+  "(?<dev>",
+  // dev release
+  /*    */
+  "[-_\\.]?",
+  /*    */
+  "(?<dev_l>dev)",
+  /*    */
+  "[-_\\.]?",
+  /*    */
+  "(?<dev_n>[0-9]+)?",
+  /* */
+  ")?",
+  ")",
+  "(?:\\+(?<local>[a-z0-9]+(?:[-_\\.][a-z0-9]+)*))?"
+  // local version
+].join("");
+var validRegex = new RegExp("^" + VERSION_PATTERN + "$", "i");
+function valid(version) {
+  return validRegex.test(version) ? version : null;
+}
+var cleanRegex = new RegExp("^\\s*" + VERSION_PATTERN + "\\s*$", "i");
+function parse2(version, regex) {
+  const { groups } = (regex || validRegex).exec(version) || {};
+  if (!groups) {
+    return null;
+  }
+  const parsed = {
+    epoch: Number(groups.epoch ? groups.epoch : 0),
+    release: groups.release.split(".").map(Number),
+    pre: normalize_letter_version(groups.pre_l, groups.pre_n),
+    post: normalize_letter_version(
+      groups.post_l,
+      groups.post_n1 || groups.post_n2
+    ),
+    dev: normalize_letter_version(groups.dev_l, groups.dev_n),
+    local: parse_local_version(groups.local)
+  };
+  return parsed;
+}
+function normalize_letter_version(letterIn, numberIn) {
+  let letter = letterIn;
+  let number = numberIn;
+  if (letter) {
+    if (!number) {
+      number = 0;
+    }
+    letter = letter.toLowerCase();
+    if (letter === "alpha") {
+      letter = "a";
+    } else if (letter === "beta") {
+      letter = "b";
+    } else if (["c", "pre", "preview"].includes(letter)) {
+      letter = "rc";
+    } else if (["rev", "r"].includes(letter)) {
+      letter = "post";
+    }
+    return [letter, Number(number)];
+  }
+  if (!letter && number) {
+    letter = "post";
+    return [letter, Number(number)];
+  }
+  return null;
+}
+function parse_local_version(local) {
+  if (local) {
+    return local.split(/[._-]/).map(
+      (part) => Number.isNaN(Number(part)) ? part.toLowerCase() : Number(part)
+    );
+  }
+  return null;
+}
+
+// node_modules/.pnpm/@renovatebot+pep440@5.0.0/node_modules/@renovatebot/pep440/lib/operator.js
+function ge(version, other) {
+  return compare(version, other) >= 0;
+}
+function compare(version, other) {
+  const parsedVersion = parse2(version);
+  const parsedOther = parse2(other);
+  const keyVersion = calculateKey(parsedVersion);
+  const keyOther = calculateKey(parsedOther);
+  return pyCompare(keyVersion, keyOther);
+}
+function pyCompare(elemIn, otherIn) {
+  let elem = elemIn;
+  let other = otherIn;
+  if (elem === other) {
+    return 0;
+  }
+  if (Array.isArray(elem) !== Array.isArray(other)) {
+    elem = Array.isArray(elem) ? elem : [elem];
+    other = Array.isArray(other) ? other : [other];
+  }
+  if (Array.isArray(elem)) {
+    const len = Math.min(elem.length, other.length);
+    for (let i = 0; i < len; i += 1) {
+      const res = pyCompare(elem[i], other[i]);
+      if (res !== 0) {
+        return res;
+      }
+    }
+    return elem.length - other.length;
+  }
+  if (elem === -Infinity || other === Infinity) {
+    return -1;
+  }
+  if (elem === Infinity || other === -Infinity) {
+    return 1;
+  }
+  return elem < other ? -1 : 1;
+}
+function calculateKey(input) {
+  const { epoch } = input;
+  let { release, pre, post, local, dev } = input;
+  release = release.concat();
+  release.reverse();
+  while (release.length && release[0] === 0) {
+    release.shift();
+  }
+  release.reverse();
+  if (!pre && !post && dev) pre = -Infinity;
+  else if (!pre) pre = Infinity;
+  if (!post) post = -Infinity;
+  if (!dev) dev = Infinity;
+  if (!local) {
+    local = -Infinity;
+  } else {
+    local = local.map(
+      (i) => Number.isNaN(Number(i)) ? [-Infinity, i] : [Number(i), ""]
+    );
+  }
+  return [epoch, release, pre, post, dev, local];
+}
+
+// node_modules/.pnpm/@renovatebot+pep440@5.0.0/node_modules/@renovatebot/pep440/lib/specifier.js
+var RANGE_PATTERN = [
+  "(?<operator>(===|~=|==|!=|<=|>=|<|>))",
+  "\\s*",
+  "(",
+  /*  */
+  "(?<version>(?:" + VERSION_PATTERN.replace(/\?<\w+>/g, "?:") + "))",
+  /*  */
+  "(?<prefix>\\.\\*)?",
+  /*  */
+  "|",
+  /*  */
+  "(?<legacy>[^,;\\s)]+)",
+  ")"
+].join("");
+var rangeRegex = new RegExp("^" + RANGE_PATTERN + "$", "i");
+
+// src/index.ts
 function removePrefix(str, prefix) {
   return str.startsWith(prefix) ? str.slice(prefix.length) : str;
 }
@@ -26300,11 +25850,11 @@ async function main() {
   }
   let isPre;
   if (usePep440) {
-    if (!pep440.valid(currentTag)) {
+    if (!valid(currentTag)) {
       setFailed(`Invalid pep440 version: ${currentTag}`);
       return;
     }
-    isPre = pep440.parse(currentTag)?.is_prerelease ?? false;
+    isPre = parse2(currentTag)?.is_prerelease ?? false;
   } else {
     const parsed = semver.parse(currentTag.replace(/^v/, ""));
     if (!parsed) {
@@ -26330,9 +25880,9 @@ async function main() {
   })) {
     for (const tag of tags) {
       if (usePep440) {
-        if (!pep440.valid(tag.name)) continue;
-        if (pep440.gte(tag.name, currentTag)) continue;
-        if (!isPre && (pep440.parse(tag.name)?.is_prerelease ?? false)) continue;
+        if (!valid(tag.name)) continue;
+        if (ge(tag.name, currentTag)) continue;
+        if (!isPre && (parse2(tag.name)?.is_prerelease ?? false)) continue;
       } else {
         const tagVersion = semver.parse(tag.name.replace(/^v/, ""));
         if (!tagVersion) continue;
