@@ -15,8 +15,8 @@ importers:
         specifier: 9.1.1
         version: 9.1.1
       '@renovatebot/pep440':
-        specifier: 4.2.2
-        version: 4.2.2
+        specifier: 4.2.4
+        version: 4.2.4
       semver:
         specifier: 7.7.4
         version: 7.7.4
@@ -261,9 +261,9 @@ packages:
   '@octokit/types@16.0.0':
     resolution: {integrity: sha512-sKq+9r1Mm4efXW1FCk7hFSeJo4QKreL/tTbR0rz/qx/r1Oa2VV83LTA/H/MuCOX7uCIJmQVRKBcbmWoySjAnSg==}
 
-  '@renovatebot/pep440@4.2.2':
-    resolution: {integrity: sha512-dSbrkSS9/NfNwhOgQ0rpKA9KNiKSFhgK707Wi+oX8SZLqvu8dvsVuzORbKOYq5eX4nSiwrHApWisecw0cZhjVQ==}
-    engines: {node: ^20.9.0 || ^22.11.0 || ^24, pnpm: ^10.0.0}
+  '@renovatebot/pep440@4.2.4':
+    resolution: {integrity: sha512-r+Pwj9ud/5QOOHoSsD7mWzU0Qkj105UPOyPwihGAtbNCl9pqnWkEDNRM5an63QvsFsS9tt+X3o+npT3AKBiTVg==}
+    engines: {node: ^20.9.0 || ^22.11.0 || ^24, pnpm: '>=10.0.0'}
 
   '@types/node@24.12.2':
     resolution: {integrity: sha512-A1sre26ke7HDIuY/M23nd9gfB+nrmhtYyMINbjI1zHJxYteKR6qSMX56FsmjMcDb3SMcjJg5BiRRgOCC/yBD0g==}
@@ -599,7 +599,7 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 27.0.0
 
-  '@renovatebot/pep440@4.2.2': {}
+  '@renovatebot/pep440@4.2.4': {}
 
   '@types/node@24.12.2':
     dependencies:
