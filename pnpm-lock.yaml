@@ -18,8 +18,8 @@ importers:
         specifier: 4.2.2
         version: 4.2.2
       semver:
-        specifier: 7.7.4
-        version: 7.7.4
+        specifier: 7.8.1
+        version: 7.8.1
     devDependencies:
       '@types/node':
         specifier: 24.12.2
@@ -360,8 +360,8 @@ packages:
   rfdc@1.4.1:
     resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
 
-  semver@7.7.4:
-    resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
+  semver@7.8.1:
+    resolution: {integrity: sha512-rkVq3IXh+4FDGch+KwzX3aV9W3kO54GyEgpvBzSyctDA6Xtd7RJQV1xmXbeQp5v7+VzLOfVqiutSE6GICgPFvg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -710,7 +710,7 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-  semver@7.7.4: {}
+  semver@7.8.1: {}
 
   signal-exit@4.1.0: {}
 
