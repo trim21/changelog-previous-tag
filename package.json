@@ -9,15 +9,15 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "@actions/core": "3.0.0",
+    "@actions/core": "3.0.1",
     "@actions/github": "9.1.1",
     "@renovatebot/pep440": "4.2.2",
-    "semver": "7.7.4"
+    "semver": "7.8.1"
   },
   "devDependencies": {
     "@types/node": "24.13.3",
     "@types/semver": "7.7.1",
-    "esbuild": "0.28.0",
+    "esbuild": "0.28.1",
     "lint-staged": "17.0.8",
     "prettier": "3.8.3",
     "simple-git-hooks": "2.13.1",
