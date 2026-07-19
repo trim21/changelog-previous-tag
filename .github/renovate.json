@@ -1,6 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["local>Trim21/renovate-config", "local>Trim21/renovate-config:monthly"],
+  "labels": ["ci:auto-merge", "dependencies"],
+  "prConcurrentLimit": 3,
   "separateMajorMinor": true,
   "separateMinorPatch": false,
   "rangeStrategy": "pin",
