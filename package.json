@@ -33,7 +33,8 @@
   "packageManager": "pnpm@11.5.3",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "simple-git-hooks"
+      "simple-git-hooks",
+      "esbuild"
     ]
   }
 }
