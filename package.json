@@ -30,11 +30,5 @@
     "*.{ts,js,json,yaml,yml,md}": "prettier --write",
     "*.ts": "tsc --noEmit --skipLibCheck"
   },
-  "packageManager": "pnpm@11.5.3",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "simple-git-hooks",
-      "esbuild"
-    ]
-  }
+  "packageManager": "pnpm@11.5.3"
 }
