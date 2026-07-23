@@ -30,5 +30,5 @@
     "*.{ts,js,json,yaml,yml,md}": "prettier --write",
     "*.ts": "tsc --noEmit --skipLibCheck"
   },
-  "packageManager": "pnpm@11.5.3"
+  "packageManager": "pnpm@11.8.0"
 }
