@@ -10,3 +10,9 @@ inputs:
     default: 'semver'
   token:
     description: 'github token, defaults to the built-in GITHUB_TOKEN'
+
+outputs:
+  previousTag:
+    description: 'the previous tag name'
+  preRelease:
+    description: 'whether the current tag is a pre-release'
