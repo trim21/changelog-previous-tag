@@ -23,8 +23,8 @@ pull_request_rules:
       - check-success=typecheck
       - not:
           and:
-            - "head*=renovate/lockfile-maintenance-*"
-            - "created-at>24h ago"
+            - 'head*=renovate/lockfile-maintenance-*'
+            - 'created-at>24h ago'
     actions:
       queue:
         name: renovate
