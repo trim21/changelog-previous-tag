@@ -26614,7 +26614,7 @@ function getOctokit(token, options, ...additionalPlugins) {
 // src/index.ts
 var semver = __toESM(require_semver2());
 
-// node_modules/.pnpm/@renovatebot+pep440@5.0.1/node_modules/@renovatebot/pep440/lib/version.js
+// node_modules/.pnpm/@renovatebot+pep440@6.0.0/node_modules/@renovatebot/pep440/lib/version.js
 var VERSION_PATTERN = [
   "v?",
   "(?:",
@@ -26732,7 +26732,7 @@ function parse_local_version(local) {
   return null;
 }
 
-// node_modules/.pnpm/@renovatebot+pep440@5.0.1/node_modules/@renovatebot/pep440/lib/operator.js
+// node_modules/.pnpm/@renovatebot+pep440@6.0.0/node_modules/@renovatebot/pep440/lib/operator.js
 function ge(version, other) {
   return compare(version, other) >= 0;
 }
@@ -26794,7 +26794,7 @@ function calculateKey(input) {
   return [epoch, release, pre, post, dev, local];
 }
 
-// node_modules/.pnpm/@renovatebot+pep440@5.0.1/node_modules/@renovatebot/pep440/lib/specifier.js
+// node_modules/.pnpm/@renovatebot+pep440@6.0.0/node_modules/@renovatebot/pep440/lib/specifier.js
 var RANGE_PATTERN = [
   "(?<operator>(===|~=|==|!=|<=|>=|<|>))",
   "\\s*",
